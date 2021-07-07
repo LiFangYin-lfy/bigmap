@@ -1,0 +1,240 @@
+body,
+html,
+ol,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+th,
+td,
+dl,
+dd,
+form,
+fieldset,
+legend,
+input,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+body {
+  height: 100%;
+  font: 12px "微软雅黑", "MicrosoftYaHei", HELVETICA;
+  background: #f9f9f9;
+  -webkit-text-size-adjust: 100%;
+  font-family: "微软雅黑";
+  background: url('../assets/image/img_19.jpg') no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+}
+a {
+  color: #416fae;
+  text-decoration: none;
+  font-weight: normal;
+}
+em {
+  font-style: normal;
+}
+li {
+  list-style: none;
+  font-weight: normal;
+}
+img {
+  border: 0;
+  vertical-align: middle;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+p {
+  word-wrap: break-word;
+  font-weight: normal;
+  cursor: pointer;
+}
+i {
+  font-style: normal;
+}
+/* 清浮动 */
+.clearfix::after {
+  content: ".";
+  clear: both;
+  display: block;
+  overflow: hidden;
+  font-size: 0;
+  height: 0;
+}
+.clearfix {
+  zoom: 1;
+}
+/* flex布局 */
+.layout {
+  display: -moz-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+/* align-item */
+.align_center {
+  -moz-box-align: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -moz-box-pack: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+}
+.align_left {
+  -moz-box-align: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  -moz-box-pack: flex-start;
+  -webkit-box-pack: flex-start;
+  -ms-flex-pack: flex-start;
+}
+/* justify */
+.justify {
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -moz-box-pack: space-between;
+  -webkit-box-pack: space-between;
+  box-pack: space-between;
+}
+.justify-start {
+  justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  box-pack: flex-start;
+}
+.justify_around {
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -moz-box-pack: space-around;
+  -webkit-box-pack: space-around;
+  box-pack: space-around;
+}
+.justify_center {
+  justify-content: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -webkit-box-pack: center;
+  box-pack: center;
+}
+/* flex-direction */
+.flex_diection {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+}
+.flex_row {
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  -o-flex-direction: row;
+  flex-direction: row;
+}
+/* flex-warp */
+.flex-warp {
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+}
+.flex-nowarp {
+  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  -o-flex-wrap: nowrap;
+}
+.two_text {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.one_text {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.three_text {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.one_title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.one_title .sma_p {
+  width: 100%;
+  text-align: center;
+  font-size: 26px;
+  font-family: Source Han Sans CN;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 34px;
+}
+.one_title .down_affter {
+  width: 50%;
+  margin: 0 auto;
+}
+.count_num {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+}
+.count_num .tesxd {
+  width: 161px;
+  height: 46px;
+  background-color: #397fb0;
+  border: 1px solid #397fb0;
+  border-radius: 4px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+.count_num .tesxd .coun_boxs {
+  line-height: 46px;
+  text-align: center;
+  font-size: 32px;
+  font-family: Source Han Sans CN;
+  font-weight: bold;
+  color: #0bd7f0;
+}
+.count_num .tesxd .arrow_top {
+  width: 15px;
+  height: 15px;
+  margin-left: 24px;
+}
+.nt_bos {
+  height: 436px;
+}
