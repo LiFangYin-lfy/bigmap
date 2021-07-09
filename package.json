@@ -8,6 +8,7 @@
     "lint": "eslint --fix --ext .js,.vue src"
   },
   "dependencies": {
+    "@jiaminghi/data-view": "^2.10.0",
     "axios": "^0.21.1",
     "bignumber.js": "^9.0.0",
     "core-js": "^3.6.4",

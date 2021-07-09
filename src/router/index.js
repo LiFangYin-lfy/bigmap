@@ -4,13 +4,14 @@ import local from '@/utils/local'
 import Home from '@/view/home/index.vue'
 import Semo from '@/view/demo/demo.vue'
 import Screen from '@/view/screen/screen.vue'
+import Threescreen from '@/view/threescreen/threescreen.vue'
 
 Vue.use(VueRouter)
 
 const router = new VueRouter({
   mode: 'history',
   routes: [{
-      path: '/',
+      path: '/home',
       name: 'home',
       component: Home
     },
@@ -22,6 +23,10 @@ const router = new VueRouter({
       path: '/screen',
       name: 'screen',
       component: Screen
+    }, {
+      path: '/',
+      name: 'threescreen',
+      component: Threescreen
     },
   ]
 })

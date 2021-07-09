@@ -15,7 +15,10 @@ import VueQuillEditor from 'vue-quill-editor'
 import VueLazyload from 'vue-lazyload';
 import * as echarts from 'echarts';
 import VueCropper from 'vue-cropper'
+// 将自动注册所有组件为全局组件
+import dataV from '@jiaminghi/data-view'
 Vue.use(VueCropper)
+Vue.use(dataV)
 // 使用插件 里边放置了全局组件
 import plugin from '@/components'
 import axios from '@/api'

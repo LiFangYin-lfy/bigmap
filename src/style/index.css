@@ -238,3 +238,10 @@ i {
 .nt_bos {
   height: 436px;
 }
+.small_containet {
+  padding: 16px 16px 0;
+  box-sizing: border-box;
+  background: url("../assets/image/img_19.jpg") no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+}

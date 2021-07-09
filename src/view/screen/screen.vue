@@ -1,75 +1,174 @@
 <template>
   <div class="container">
-    <div class="sr_img" :style="{'height': windowHeight+'px'}">
-      <div class="hx_bt">
-        <div class="boxs_city">
-          <line-chart :setterline="getterline" />
+    <dv-full-screen-container class="small_containet">
+      <div class="sr_img" :style="{'height': windowHeight+'px'}">
+        <div class="hx_bt">
+          <div class="boxs_city">
+            <!-- <line-chart :setterline="getterline" /> -->
+            <dv-scroll-ranking-board :config="newoption" style="width:100%;height:300px" />
+            <dv-flyline-chart-enhanced :config="newoption" style="width:100%;height:100%;" />
+          </div>
+          <div class="cp_boxs">
+            <dv-border-box-1 :color="['#fff000','#ccc']">
+              <div class="bing_box">
+                <dv-decoration-3 style="width:250px;height:30px;" :color="['#ff0000','#fff']" />
+              </div>
+              <div class="radius">
+                <dv-decoration-9 :dur="dur" style="width:250px;height:250px;">
+                  <div class="na" style="color:#fff;font-weight: 600;font-size:36px">66%</div>
+                </dv-decoration-9>
+              </div>
+            </dv-border-box-1>
+          </div>
+          <div class="boxs_city">
+            <dv-border-box-8>
+              <dv-loading v-if="loading">Loading...</dv-loading>
+              <!-- <bin-chart v-else /> -->
+              <div class="bs" v-else>
+                <dv-active-ring-chart :config="config" style="width:200px;height:200px" />
+              </div>
+            </dv-border-box-8>
+          </div>
         </div>
-        <div class="cp_boxs">
-          <!-- <div id="mydemo" style="width:100%;height:320px"></div> -->
+        <div class="screen_boxs">
+          <div
+            class="x_item"
+            :style="{
+              background: 'url(' + left_bg + ') no-repeat center center',
+              'background-size': '100% 100%',}"
+          >
+            <div class="l_titles">饼图</div>
+            <div class="map_n ca" :style="{'height': ((windowHeight* 0.4) - 84)+'px'}">
+              <div id="barimage" style="width: 100%;height:320px"></div>
+            </div>
+          </div>
+          <div
+            class="x_item"
+            :style="{
+              background: 'url(' + left_bg + ') no-repeat center center',
+              'background-size': '100% 100%',}"
+          >
+            <div class="l_titles">柱状折线图</div>
+            <div class="map_n ca" :style="{'height': ((windowHeight* 0.4) - 84)+'px'}">
+              <div id="colmun" style="width: 100%;height:320px"></div>
+            </div>
+          </div>
+          <div
+            class="x_item"
+            :style="{
+              background: 'url(' + left_bg + ') no-repeat center center',
+              'background-size': '100% 100%',}"
+          >
+            <div class="l_titles">多折线图</div>
+            <div class="map_n ca" :style="{'height': ((windowHeight* 0.4) - 84)+'px'}">
+              <div id="main" style="width: 100%;height:320px"></div>
+            </div>
+          </div>
         </div>
-        <div class="boxs_city">饼图</div>
       </div>
-      <div class="screen_boxs">
-        <div
-          class="x_item"
-          :style="{
-              background: 'url(' + left_bg + ') no-repeat center center',
-              'background-size': '100% 100%',}"
-        >
-          <div class="l_titles">饼图</div>
-          <div class="map_n ca" :style="{'height': ((windowHeight* 0.4) - 84)+'px'}">
-            <div id="barimage" style="width: 100%;height:320px"></div>
-          </div>
-        </div>
-        <div
-          class="x_item"
-          :style="{
-              background: 'url(' + left_bg + ') no-repeat center center',
-              'background-size': '100% 100%',}"
-        >
-          <div class="l_titles">柱状折线图</div>
-          <div class="map_n ca" :style="{'height': ((windowHeight* 0.4) - 84)+'px'}">
-            <div id="colmun" style="width: 100%;height:320px"></div>
-          </div>
-        </div>
-        <div
-          class="x_item"
-          :style="{
-              background: 'url(' + left_bg + ') no-repeat center center',
-              'background-size': '100% 100%',}"
-        >
-          <div class="l_titles">多折线图</div>
-          <div class="map_n ca" :style="{'height': ((windowHeight* 0.4) - 84)+'px'}">
-            <div id="main" style="width: 100%;height:320px"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </dv-full-screen-container>
   </div>
 </template>
 
 <script>
-import * as echarts from 'echarts';
-import lineChart from '../../components/line-chart.vue';
 export default {
-  components: { lineChart },
+  components: {},
   name: 'screen',
   data() {
     return {
       left_bg: require('../../assets/image/img_03.png'),
       windowHeight: '',
       getterline: '你好',
+      loading: false,
+      dur: 3,
+      config: {
+        radius: '65%',
+        activeRadius: '74%',
+        lineWidth: 16,
+        activeTimeGap: 3000,
+        color: ['#37a2da', '#32c5e9', '#67e0e3', '#9fe6b8', '#ff0000'],
+        data: [
+          {
+            name: '周口',
+            value: 55
+          },
+          {
+            name: '南阳',
+            value: 120
+          },
+          {
+            name: '西峡',
+            value: 78
+          },
+          {
+            name: '驻马店',
+            value: 66
+          },
+          {
+            name: '新乡',
+            value: 80
+          }
+        ],
+      },
+      watherconfig: {
+        data: [66, 45, 30],
+        shape: 'roundRect'
+      },
+      newoption: {
+        carousel: 'single',
+        unit: '单位',
+        data: [
+          {
+            name: '周口',
+            value: 55
+          },
+          {
+            name: '南阳',
+            value: 120
+          },
+          {
+            name: '西峡',
+            value: 78
+          },
+          {
+            name: '驻马店',
+            value: 66
+          },
+          {
+            name: '新乡',
+            value: 80
+          },
+          {
+            name: '信阳',
+            value: 45
+          },
+          {
+            name: '漯河',
+            value: 29
+          }
+        ]
+      }
+
     }
   },
   created() { },
   mounted() {
+    let that = this
     var windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
     this.windowHeight = windowHeight
-    this.barimg()
-    this.addinit()
-    this.foldingcolumn()
-    // this.getdemo()
+    // const newPromise = new Promise((resolve) => {
+    //   resolve()
+    // })
+    // newPromise.then(() => {
+    //   that.barimg()
+    //   that.addinit()
+    //   that.foldingcolumn()
+    // })
+    this.$nextTick(() => {
+      that.barimg()
+      that.addinit()
+      that.foldingcolumn()
+    })
     this.getterline = '你好棒'
   },
   methods: {
@@ -78,7 +177,7 @@ export default {
      */
     barimg() {
       var chartDom = document.getElementById('barimage');
-      var myChart = echarts.init(chartDom);
+      var myChart = this.$echarts.init(chartDom);
       var datas = [
         { value: 1048, name: '搜索引擎' },
         { value: 735, name: '直接访问' },
@@ -155,7 +254,7 @@ export default {
      */
     foldingcolumn() {
       var chartDom = document.getElementById('colmun');
-      var myChart = echarts.init(chartDom);
+      var myChart = this.$echarts.init(chartDom);
       var option;
 
       option = {
@@ -248,7 +347,7 @@ export default {
      */
     addinit() {
       var chartDom = document.getElementById('main');
-      var myChart = echarts.init(chartDom);
+      var myChart = this.$echarts.init(chartDom);
       var option;
 
       var colors = ['#579add', '#f2c27b'];
@@ -379,7 +478,7 @@ export default {
      */
     getdemo() {
       var chartDom = document.getElementById('mydemo');
-      var myChart = echarts.init(chartDom);
+      var myChart = this.$echarts.init(chartDom);
       var option;
       option = {
         // title: {
@@ -431,68 +530,98 @@ export default {
   width: 100%;
   height: 100%;
   //   overflow: hidden;
-
-  .sr_img {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-bottom: 24px;
+  .small_containet {
+    padding: 16px 16px 0;
     box-sizing: border-box;
-    .hx_bt {
+    background: url("../../assets/image/img_19.jpg") no-repeat;
+    background-size: 100% 100%;
+    overflow: hidden;
+    .sr_img {
       width: 100%;
-      height: 55%;
       display: flex;
-
-      .boxs_city {
-        flex-grow: 1;
-        border: 1px solid red;
-        color: tomato;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-bottom: 24px;
+      box-sizing: border-box;
+      .hx_bt {
+        width: 100%;
+        height: 55%;
         display: flex;
-        align-items: center;
-        justify-content: center;
-      }
 
-      .cp_boxs {
-        flex-grow: 3;
-        border: 1px solid red;
-      }
-    }
+        .boxs_city {
+          // flex-grow: 1;
+          flex: 2;
+          color: tomato;
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
-    .screen_boxs {
-      width: 100%;
-      height: 40%;
-      display: flex;
-
-      .x_item {
-        width: 33.33%;
-        padding: 24px 24px 0;
-        box-sizing: border-box;
-
-        .l_titles {
-          font-size: 16px;
-          font-family: Source Han Sans CN;
-          color: #ffffff;
-          line-height: 20px;
-          position: relative;
-          width: 100%;
-          padding-left: 16px;
-          box-sizing: border-box;
-
-          &::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            width: 4px;
-            height: 100%;
-            background-color: #fb8d34;
+          .bs {
+            width: 100%;
+            padding-top: 70px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
         }
 
-        .ca {
-          margin-top: 16px;
+        .cp_boxs {
+          flex: 1;
+          flex-shrink: 0;
+
+          .bing_box {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+          }
+          .radius {
+            width: 100%;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+          }
+        }
+      }
+
+      .screen_boxs {
+        width: 100%;
+        height: 40%;
+        display: flex;
+
+        .x_item {
+          width: 33.33%;
+          padding: 24px 24px 0;
+          box-sizing: border-box;
+
+          .l_titles {
+            font-size: 16px;
+            font-family: Source Han Sans CN;
+            color: #ffffff;
+            line-height: 20px;
+            position: relative;
+            width: 100%;
+            padding-left: 16px;
+            box-sizing: border-box;
+
+            &::after {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 0;
+              transform: translateY(-50%);
+              width: 4px;
+              height: 100%;
+              background-color: #fb8d34;
+            }
+          }
+
+          .ca {
+            margin-top: 16px;
+          }
         }
       }
     }
