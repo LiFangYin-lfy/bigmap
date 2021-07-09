@@ -61,6 +61,21 @@ p {
 i {
   font-style: normal;
 }
+.d_flex {
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+.align_item {
+  align-items: baseline;
+}
 /* 清浮动 */
 .clearfix::after {
   content: ".";

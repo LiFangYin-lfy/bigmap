@@ -43,7 +43,6 @@ export default {
             color: '#a9a9a9',
             fontSize: 14,
             padding: [4, 0, 0, 0]
-
           }
         },
         tooltip: {
@@ -73,7 +72,7 @@ export default {
             ['aese Coca1', 154.1, 67.2, 75, 56.4],
           ]
         },
-        xAxis: {
+        xAxis: [{
           type: 'category',
           nameTextStyle: {
             color: '#fff',
@@ -89,7 +88,20 @@ export default {
             fontSize: 14,
             interval: 0,//代表显示所有x轴标签显示
           }
-        },
+        }, {
+          type: 'value',
+          axisLine: {
+            onZero: false,
+            onZeroAxisIndex: 1,
+            lineStyle: {
+              color: '#ff0000',
+              width: 6,
+            }
+          },
+          position: 'bottom',
+          offset: -100,
+        }
+        ],
         yAxis: [
           {
             type: 'value',
@@ -149,7 +161,8 @@ export default {
             axisLabel: {
               color: '#eee',
               formatter: '{value}'
-            }
+            },
+
           }
         ],
         grid: {
@@ -183,6 +196,11 @@ export default {
             lineStyle: {
               color: "rgba(22, 225, 232, 1)",
               width: 6,
+            },
+            markLine: {
+              data: [
+                { type: 'average', name: '平均值' }
+              ]
             },
             data: [141.1, 86.5, 124.1, 140, 241.1, 26.5, 124.1, 142, 121.1, 26.5, 124.1, 140, 126.5, 121.1, 142, 111.1, 126.5, 124.1, 110]
           },
