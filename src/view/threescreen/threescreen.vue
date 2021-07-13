@@ -32,8 +32,10 @@
         </div>
         <div class="down_right_">
           <dv-border-box-12>
-            <radar-box />
-            <!-- <bar-chart /> -->
+            <p style="color: #fff">姓：{{ firstName }}</p>
+            <p style="color: #fff">名：{{ lastName }}</p>
+            <p style="color: #fff">全名:{{ fullName }}</p>
+            <!-- <input type="text" v-model="fullName" /> -->
             <div class="pos_boxs">
               <!-- <radar-box /> -->
             </div>
@@ -50,10 +52,24 @@ export default {
   components: {},
   data() {
     return {
-
+      coutn: '你好',
+      firstName: "卧",
+      lastName: "底",
     }
   },
   created() {
+  },
+  computed: {
+    fullName: {
+      get() {
+        return this.firstName + this.lastName;
+      },
+      set(val) {
+        console.log(val);
+        this.firstName = val[0];
+        this.lastName = val.substr(1);
+      },
+    },
 
   },
   mounted() {
